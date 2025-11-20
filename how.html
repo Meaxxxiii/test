@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิธีการใช้งานเบื้องต้น</title>
+    <title>วิธีการใช้งาน</title>
     <link rel="icon" href="{{ url_for('static', filename='logo.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -14,8 +14,8 @@
         <div class="page">
             <div class="step-card">
                 <img src="{{ url_for('static', filename='step1.png') }}" class="step-img">
-                <div class="title">1. ค้นหาสถานที่</div>
-                <div class="desc">ค้นหาห้องที่คุณต้องการไป... (เปลี่ยนข้อความให้สมบูรณ์)</div>
+                <div class="title">1. ค้นหาจุดหมายปลายทาง</div>
+                <div class="desc">เลือกสถานที่ที่เมนูแสดง หรือค้นหาสถานที่ที่คุณต้องการไป...</div>
             </div>
             <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
             <div class="btn-area">
@@ -26,8 +26,8 @@
         <div class="page">
             <div class="step-card">
                 <img src="{{ url_for('static', filename='step2.png') }}" class="step-img">
-                <div class="title">2. ดูรายละเอียด</div>
-                <div class="desc">คลิกที่สถานที่เพื่อดูข้อมูล รูปภาพ และแผนที่...</div>
+                <div class="title">2. แสดงเส้นทาง</div>
+                <div class="desc">แสดงเส้นทางไปยังเป้าหมายของคุณ</div>
             </div>
             <div class="dots"><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
             <div class="btn-area">
@@ -39,8 +39,8 @@
         <div class="page">
              <div class="step-card">
                 <img src="{{ url_for('static', filename='step3.png') }}" class="step-img">
-                <div class="title">3. บันทึกและแชร์</div>
-                <div class="desc">คุณสามารถบันทึกสถานที่โปรด หรือแชร์ให้เพื่อนดูได้...</div>
+                <div class="title">3. แสดงแผนผังอาคารที่เป้าหมายคุณจะไป</div>
+                <div class="desc">หากสถานที่ที่คุณจะไปอยู่อาคาร 1 ระบบจะแสดงเส้นทางในทันที หากเป็นอาคารอื่น จะแสดงเส้นทางไปยังอาคารนั้นๆก่อน</div>
             </div>
             <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
             <div class="btn-area">
@@ -52,8 +52,8 @@
         <div class="page">
              <div class="step-card">
                 <img src="{{ url_for('static', filename='step4.png') }}" class="step-img">
-                <div class="title">4. การนำทาง</div>
-                <div class="desc">ระบบจะนำทางไปยังสถานที่ที่คุณเลือกโดยอัตโนมัติ...</div>
+                <div class="title">4. กด Next เมื่อไปถึงเป้าหมายแต่ละจุด</div>
+                <div class="desc">เมื่อเดินทางไปทีละเป้าหมาย กด "Next" ไปเรื่อยๆ จนกว่าจะถึงที่หมาย</div>
             </div>
             <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span></div>
             <div class="btn-area">
@@ -65,14 +65,14 @@
         <div class="page">
              <div class="step-card">
                 <img src="{{ url_for('static', filename='step5.png') }}" class="step-img">
-                <div class="title">5. เริ่มต้นใช้งาน</div>
-                <div class="desc">ตอนนี้คุณพร้อมที่จะใช้งานแอปพลิเคชันของเราแล้ว!</div>
+                <div class="title">5. ถึงจุดเป้าหมาย</div>
+                <div class="desc">หากถึงจุดเป้าหมาย สามารถคลิก "ถึงจุดเป้าหมายแล้ว" หากยังไม่ถึงสามารถไปยังจุดเริ่มต้น เพื่อเริ่มเดินทางใหม่</div>
             </div>
             <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span></div>
             <div class="btn-area">
                 <button class="btn-back btn" onclick="back()">ย้อนกลับ</button>
-                <a href="/"><button class="btn-finish btn">เสร็จสิ้น</button></a> 
-                </div>
+                <a href="/menu" class="btn btn-finish">ต่อไป</a>
+            </div>
         </div>
 
     </div>
