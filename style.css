@@ -12,7 +12,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(#64c1a6, #ffffff);
+    background: linear-gradient(#79ceb6, #ffffff);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +23,7 @@ body {
 /* โลโก้ */
 #logo {
     width: 500px;
-    margin-bottom: 25px;
+    /*margin-bottom: 0px;*/
     opacity: 0;
     transform: translateY(40px);
 }
@@ -74,7 +74,7 @@ body {
     width: 500%;
     height: 100vh;
     display: flex;
-    transition: transform 0.2s ease;
+    transition: transform 0.8s ease;
 }
 
 .page {
@@ -83,18 +83,19 @@ body {
     text-align: center;
 }
 
+/* ปรับกรอบสีขาว */
 .step-card {
     background: white;
     max-width: 500px;
-    min-height: 400px;
-    margin: 0 auto;
+    min-height: 300px;
+    margin: 25px auto 0 auto;  /* ปรับกรอบสีขาว */
     padding: 40px 20px;
     border-radius: 20px;
     box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
 }
 
 .step-img {
-    width: 180px;
+    width: 250px;
     margin-top: 25px;
 }
 
@@ -151,4 +152,84 @@ body {
 .btn-finish {
     background: #33af5c;
     color: white;
+}
+
+/* ---------------- menu.html ---------------- */
+
+.menu-header {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 25px;
+    color: #2b6156;
+}
+
+/* ช่องค้นหา */
+.search-box {
+    width: 85%;
+    margin: 15px auto 25px auto;
+    background: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+}
+
+.search-icon {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #50a17e;
+}
+
+/* กริดเมนู */
+.menu-container {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding-bottom: 500px; /* ปรับส่วนพิ้นหลังให้ลงมา */
+}
+
+.menu-card {
+    background: white;
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+    min-height: 110px;
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    background: #e9faf3;
+}
+
+.menu-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #2b9770;
+}
+
+.room-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+/* ให้หน้าเมนูสามารถเลื่อนได้ */
+body.menu-page {
+    overflow-y: auto !important;
 }
