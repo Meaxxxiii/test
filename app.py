@@ -10,6 +10,15 @@ def index():
 def how():
     return render_template("how.html")
 
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
+
+@app.route('/room-it')
+def room_it():
+    return render_template('room-it.html')
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
-    # ใช้ port 5000 หรือ port อื่นที่คุณต้องการ เช่น 5500
+
