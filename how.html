@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วิธีการใช้งาน</title>
+    <link rel="icon" href="{{ url_for('static', filename='logo.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div id="slider" class="onboarding-wrapper">
+        
+        <div class="page">
+            <div class="step-card">
+                <img src="{{ url_for('static', filename='step1.png') }}" class="step-img">
+                <div class="title">1. ค้นหาสถานที่</div>
+                <div class="desc">ค้นหาห้องที่คุณต้องการไป... (เปลี่ยนข้อความให้สมบูรณ์)</div>
+            </div>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="btn-area">
+                <button class="btn-next btn" onclick="next()">ถัดไป</button>
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="step-card">
+                <img src="{{ url_for('static', filename='step2.png') }}" class="step-img">
+                <div class="title">2. ดูรายละเอียด</div>
+                <div class="desc">คลิกที่สถานที่เพื่อดูข้อมูล รูปภาพ และแผนที่...</div>
+            </div>
+            <div class="dots"><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="btn-area">
+                <button class="btn-back btn" onclick="back()">ย้อนกลับ</button>
+                <button class="btn-next btn" onclick="next()">ถัดไป</button>
+            </div>
+        </div>
+
+        <div class="page">
+             <div class="step-card">
+                <img src="{{ url_for('static', filename='step3.png') }}" class="step-img">
+                <div class="title">3. บันทึกและแชร์</div>
+                <div class="desc">คุณสามารถบันทึกสถานที่โปรด หรือแชร์ให้เพื่อนดูได้...</div>
+            </div>
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="btn-area">
+                <button class="btn-back btn" onclick="back()">ย้อนกลับ</button>
+                <button class="btn-next btn" onclick="next()">ถัดไป</button>
+            </div>
+        </div>
+        
+        <div class="page">
+             <div class="step-card">
+                <img src="{{ url_for('static', filename='step4.png') }}" class="step-img">
+                <div class="title">4. การนำทาง</div>
+                <div class="desc">ระบบจะนำทางไปยังสถานที่ที่คุณเลือกโดยอัตโนมัติ...</div>
+            </div>
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span></div>
+            <div class="btn-area">
+                <button class="btn-back btn" onclick="back()">ย้อนกลับ</button>
+                <button class="btn-next btn" onclick="next()">ถัดไป</button>
+            </div>
+        </div>
+
+        <div class="page">
+             <div class="step-card">
+                <img src="{{ url_for('static', filename='step5.png') }}" class="step-img">
+                <div class="title">5. เริ่มต้นใช้งาน</div>
+                <div class="desc">ตอนนี้คุณพร้อมที่จะใช้งานแอปพลิเคชันของเราแล้ว!</div>
+            </div>
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span></div>
+            <div class="btn-area">
+                <button class="btn-back btn" onclick="back()">ย้อนกลับ</button>
+                <a href="/"><button class="btn-finish btn">เสร็จสิ้น</button></a> 
+                </div>
+        </div>
+
+    </div>
+
+    <script>
+        let current = 0;
+        const totalPages = 5; // ตั้งค่าจำนวนหน้า
+        const slider = document.getElementById("slider");
+        const dots = document.querySelectorAll('.dots');
+        
+        function updateSlider() {
+            // เลื่อน slider ด้วยการใช้ transform
+            slider.style.transform = "translateX(" + (-current * 100) + "vw)";
+
+            // อัพเดท active dot และปุ่ม
+            updateDots();
+            updateButtons(); 
+        }
+
+        function updateDots() {
+            // ลบ active class ออกจากทุก dot ในทุกหน้า
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            // กำหนด active class ให้ dot ที่ถูกต้องในหน้าปัจจุบัน
+            dots[current].children[current].classList.add('active');
+        }
+
+        function updateButtons() {
+            // ซ่อน/แสดงปุ่มย้อนกลับ
+            const backButtons = document.querySelectorAll('.btn-back');
+            backButtons.forEach(btn => {
+                if (current === 0) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = 'inline-block';
+                }
+            });
+
+            // ซ่อนปุ่ม 'ถัดไป' ในหน้าสุดท้าย (ถ้ามีการแก้ไขโค้ด HTML ให้ปุ่มเสร็จสิ้นมาแทน)
+            // สำหรับโค้ดนี้ ไม่จำเป็นต้องซ่อน เพราะ HTML ถูกจัดให้ปุ่ม 'เสร็จสิ้น' มาแทนที่แล้วใน PAGE 5
+        }
+
+        function next() {
+            if (current < totalPages - 1) {
+                current++;
+                updateSlider();
+            }
+        }
+
+        function back() {
+            if (current > 0) {
+                current--;
+                updateSlider();
+            }
+        }
+        
+        // รันครั้งแรกเมื่อโหลดหน้า
+        document.addEventListener('DOMContentLoaded', updateSlider);
+    </script>
+
+</body>
+</html>

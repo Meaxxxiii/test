@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบนำทางภายในโรงพยาบาลสุราษฎร์ธานี</title>
+    <link rel="icon" href="{{ url_for('static', filename='logo.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div id="splash">
+        <!-- เพิ่มคลาส move-up -->
+        <img id="logo" class="move-up" 
+             src="{{ url_for('static', filename='logo.png') }}">
+
+        <!-- ปุ่มขึ้นช้ากว่าโลโก้นิดนึง -->
+        <a href="/how">
+            <button id="start-btn" class="move-up delay">เริ่มใช้งาน</button>
+        </a>
+    </div>
+
+    <script>
+        // เมื่อโหลดหน้าเสร็จ → ให้เล่น animation (move-up)
+        window.addEventListener("load", function() {
+            document.getElementById("logo").classList.add("show");
+            document.getElementById("start-btn").classList.add("show");
+        });
+
+        // คลิกปุ่ม → ไปหน้า how.html
+        document.getElementById("start-btn").addEventListener("click", function() {
+            window.location.href = "{{ url_for('how') }}";
+        });
+    </script>
+
+</body>
+</html>
